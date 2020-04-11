@@ -1,0 +1,18 @@
+.header-bar {
+    height: 140px;
+    background-color: #FF2929;
+    width: 100%;
+}
+
+.header-image {
+    height: 80px;
+    padding: 10px;
+    display: block;
+    margin: auto;
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+    color: white;
+}
