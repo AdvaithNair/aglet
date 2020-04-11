@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/aglet/static/css/main.c10f773a.chunk.css",
+    "main.js": "/aglet/static/js/main.9c40d368.chunk.js",
+    "main.js.map": "/aglet/static/js/main.9c40d368.chunk.js.map",
+    "runtime-main.js": "/aglet/static/js/runtime-main.2c99be80.js",
+    "runtime-main.js.map": "/aglet/static/js/runtime-main.2c99be80.js.map",
+    "static/js/2.15442c34.chunk.js": "/aglet/static/js/2.15442c34.chunk.js",
+    "static/js/2.15442c34.chunk.js.map": "/aglet/static/js/2.15442c34.chunk.js.map",
+    "index.html": "/aglet/index.html",
+    "precache-manifest.e58fbdc1bc32c6300a73aa4cd8e2da75.js": "/aglet/precache-manifest.e58fbdc1bc32c6300a73aa4cd8e2da75.js",
+    "service-worker.js": "/aglet/service-worker.js",
+    "static/css/main.c10f773a.chunk.css.map": "/aglet/static/css/main.c10f773a.chunk.css.map",
+    "static/js/2.15442c34.chunk.js.LICENSE.txt": "/aglet/static/js/2.15442c34.chunk.js.LICENSE.txt",
+    "static/media/AgletLogoOutline.png": "/aglet/static/media/AgletLogoOutline.d1e90b88.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c99be80.js",
+    "static/js/2.15442c34.chunk.js",
+    "static/css/main.c10f773a.chunk.css",
+    "static/js/main.9c40d368.chunk.js"
+  ]
+}
