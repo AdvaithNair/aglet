@@ -1,7 +1,7 @@
 import React from 'react';
 
-import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
+import {RECEIVE, UPDATE, DELETE} from './Entry/Actions.js';
 
 import Header from './Header/Header.js';
 import ListItem from './List/ListItem.js';
@@ -9,52 +9,34 @@ import Entry from './Entry/Entry.js';
 
 import {flowRight as compose} from 'lodash';
 
-const TodosQuery = gql`
-  {
-    todos {
-      id
-      text 
-      complete
-    }
-  }
-`;
-
-const UpdateMutation = gql`
-  mutation($id: ID!, $complete: Boolean!) {
-    updateTodo(id: $id, complete: $complete)
-  }
-`;
-
-const RemoveMutation = gql`
-  mutation($id: ID!) {
-    removeTodo(id:$id)
-  }
-`;
-
+//Main App
 class App extends React.Component {
-  updateTodo = async todo => {
+  //Updates Todo (swaps complete Boolean value and updates)
+  updateTodo = async (todo) => {
     await this.props.updateTodo({
       variables: {
         id: todo.id,
         complete: !todo.complete
       },
       refetchQueries:[{
-        query: TodosQuery
+        query: RECEIVE
       }]
     });
   };
 
-  removeTodo = async todo => {
-    await this.props.removeTodo({
+  //Deletes Todo (deletes from database and updates)
+  deleteTodo = async todo => {
+    await this.props.deleteTodo({
       variables: {
         id: todo.id
       },
       refetchQueries:[{
-        query: TodosQuery
+        query: RECEIVE
       }]
     });
   };
 
+  //Renders App
   render() {
     const {data: {loading, todos}} = this.props;
     if (loading) {
@@ -66,7 +48,7 @@ class App extends React.Component {
         <div style = {{display: "flex"}}>
           <div style = {{margin: "auto", width: "80%"}}>
               {todos.map(todo => (
-                <ListItem key = {`${todo.id}-todo-item`} name = {todo.text} complete = {todo.complete} update = {() => this.updateTodo(todo)} remove = {() => this.removeTodo(todo)} />
+                <ListItem key = {`${todo.id}-todo-item`} name = {todo.text} complete = {todo.complete} update = {() => this.updateTodo(todo)} delete = {() => this.deleteTodo(todo)} />
               ))}
           </div>
         </div>
@@ -76,9 +58,10 @@ class App extends React.Component {
   }
 }
 
+//Exports Packages
 export default compose(
-  graphql(TodosQuery),
-  graphql(UpdateMutation, {name: 'updateTodo'}),
-  graphql(RemoveMutation, {name: 'removeTodo'})
+  graphql(RECEIVE),
+  graphql(UPDATE, {name: 'updateTodo'}),
+  graphql(DELETE, {name: 'deleteTodo'})
 )(App);
 

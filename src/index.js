@@ -5,6 +5,7 @@ import {ApolloProvider} from "react-apollo";
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+//New Client For Server (CURRENTLY LOCAL)
 const client = new ApolloClient({
   uri: "http://localhost:4000"
 })

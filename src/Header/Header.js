@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import AgletLogo from './AgletLogoOutline.png';
 
+//HTML for Header Segment
 function Header() {
     return(
         <div className = "header-bar">

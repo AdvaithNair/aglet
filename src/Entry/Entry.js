@@ -1,53 +1,39 @@
 import React from 'react';
 import './Entry.css';
 
-import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
 
-const TodosQuery = gql`
-  {
-    todos {
-      id
-      text 
-      complete
-    }
-  }
-`;
+import {RECEIVE, CREATE} from './Actions.js';
 
-const CreateMutation = gql`
-  mutation($text: String!) {
-    createTodo(text: $text) {
-      text
-      id
-      complete
-    }
-  }
-`;
 
 class Entry extends React.Component {
+    //State Machine of Text (from Item Name)
     state = {
-        text: ""
+        itemtext: ""
     };
     
+    //Sets State to Updated Text from Item Name
     handleChange = (e) => {
         const newText = e.target.value;
         this.setState({
-            text: newText
+            itemtext: newText
         });
     };
 
+    //Creates Object
     createTodo = async text => {
         await this.props.createTodo({
           variables: {
             text
           },
           refetchQueries:[{
-            query: TodosQuery
+            query: RECEIVE
           }]
         })
         this.inputName.value = '';
     }
 
+    //HTML for Entry Form at Bottom
     render() {
         return (
             <div>
@@ -58,7 +44,7 @@ class Entry extends React.Component {
                         <label>Item Name</label>
                         <input className = "item-name" type = "text" onChange = {this.handleChange} ref = {el => this.inputName = el}></input>
                         <div className = "create-button">
-                            <button onClick = {() => this.createTodo(this.state.text)}>Create</button>
+                            <button onClick = {() => this.createTodo(this.state.itemtext)}>Create</button>
                         </div>
                     </div>
                 </div>
@@ -67,4 +53,4 @@ class Entry extends React.Component {
     }
 }
 
-export default (graphql(CreateMutation, {name: 'createTodo'}))(Entry);
+export default (graphql(CREATE, {name: 'createTodo'}))(Entry);
