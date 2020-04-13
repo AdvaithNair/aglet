@@ -1,0 +1,40 @@
+.over-bar {
+    height: 10px;
+    background-color: #FF2929;
+    margin-top: 30px;
+}
+
+.entry-box {
+    background-color: #FFDC00;
+    display: flex;
+}
+
+.elements {
+    margin: auto;
+    width: 80%;
+}
+
+.create-header {
+    margin: 0px -15px;
+}
+
+label {
+    margin-right: 20px;
+}
+
+input[type=text] {
+    background-color: #FFDC00;
+    border: none;
+    border-bottom: 4px solid #FF2929; 
+    width: 20%;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out; 
+}
+
+input[type=text]:focus {
+    width: 80%;
+}
+
+.create-button {
+    margin-left: -15px;
+}

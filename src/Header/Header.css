@@ -4,6 +4,13 @@
     width: 100%;
 }
 
+.under-bar {
+    height: 10px;
+    background-color: #FFDC00;
+    margin-top: -9px;
+    margin-bottom: 30px;
+}
+
 .header-image {
     height: 80px;
     padding: 10px;

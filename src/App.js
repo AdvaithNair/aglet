@@ -3,8 +3,9 @@ import React from 'react';
 import gql from 'graphql-tag';
 import {graphql} from 'react-apollo';
 
-import ListItem from './List/ListItem.js';
 import Header from './Header/Header.js';
+import ListItem from './List/ListItem.js';
+import Entry from './Entry/Entry.js';
 
 import {flowRight as compose} from 'lodash';
 
@@ -24,19 +25,34 @@ const UpdateMutation = gql`
   }
 `;
 
+const RemoveMutation = gql`
+  mutation($id: ID!) {
+    removeTodo(id:$id)
+  }
+`;
+
 class App extends React.Component {
   updateTodo = async todo => {
     await this.props.updateTodo({
       variables: {
         id: todo.id,
-        name: todo.name + " updated",
         complete: !todo.complete
-      }
-    })
+      },
+      refetchQueries:[{
+        query: TodosQuery
+      }]
+    });
   };
 
-  removeTodo = todo => {
-
+  removeTodo = async todo => {
+    await this.props.removeTodo({
+      variables: {
+        id: todo.id
+      },
+      refetchQueries:[{
+        query: TodosQuery
+      }]
+    });
   };
 
   render() {
@@ -49,12 +65,12 @@ class App extends React.Component {
         <Header />
         <div style = {{display: "flex"}}>
           <div style = {{margin: "auto", width: "80%"}}>
-              {/*{todos.map(todo => (<div key = {`${todo.id}-todo-item`}>{todo.text}</div>))}*/}
               {todos.map(todo => (
-                <ListItem name = {todo.text} complete = {todo.complete} click = {() => this.updateTodo(todo)}/>
+                <ListItem key = {`${todo.id}-todo-item`} name = {todo.text} complete = {todo.complete} update = {() => this.updateTodo(todo)} remove = {() => this.removeTodo(todo)} />
               ))}
           </div>
         </div>
+        <Entry />
       </div>
     );
   }
@@ -62,6 +78,7 @@ class App extends React.Component {
 
 export default compose(
   graphql(TodosQuery),
-  graphql(UpdateMutation, {name: "updateTodo"})
+  graphql(UpdateMutation, {name: 'updateTodo'}),
+  graphql(RemoveMutation, {name: 'removeTodo'})
 )(App);
 

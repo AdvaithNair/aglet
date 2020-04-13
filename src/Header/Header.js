@@ -7,6 +7,7 @@ function Header() {
         <div className = "header-bar">
             <img src = {AgletLogo} alt = "Aglet Logo" className = "header-image"></img>
             <h2>Your Sneaker Wishlist</h2>
+            <div className = "under-bar"></div>
         </div>
     );
 }
