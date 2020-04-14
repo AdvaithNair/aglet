@@ -15,24 +15,25 @@
 }
 
 .create-header {
-    margin: 0px -15px;
+    margin-top: 20px;
+    margin: 0;
+}
+
+.entry-element {
+    margin-top: 15px;
 }
 
 label {
     margin-right: 20px;
+    float: left;
 }
 
-input[type=text] {
+input[type=text] {    
     background-color: #FFDC00;
+    float: left;
     border: none;
     border-bottom: 4px solid #FF2929; 
     width: 20%;
-    -webkit-transition: width 0.5s ease-in-out;
-    transition: width 0.5s ease-in-out; 
-}
-
-input[type=text]:focus {
-    width: 80%;
 }
 
 .create-button {

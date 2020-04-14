@@ -5,32 +5,69 @@ import {graphql} from 'react-apollo';
 
 import {RECEIVE, CREATE} from './Actions.js';
 
+let currentRank = 1;
+
+
 
 class Entry extends React.Component {
     //State Machine of Text (from Item Name)
     state = {
-        itemtext: ""
+        itemName: "",
+        itemRank: 0,
+        itemPrice: 0,
+        itemColor: "",
+        itemOwnership: false
     };
     
     //Sets State to Updated Text from Item Name
-    handleChange = (e) => {
-        const newText = e.target.value;
+    handleName = (e) => {
+        const newName = e.target.value;
         this.setState({
-            itemtext: newText
+            itemName: newName
+        });
+    };
+
+    //Sets State to Updated Price from Item Price
+    handlePrice = (e) => {
+        const newPrice = e.target.value;
+        this.setState({
+            itemPrice: newPrice
+        });
+    };
+
+    //Sets State to Updated Colorway from Item Color
+    handleColor = (e) => {
+        const newColor = e.target.value;
+        this.setState({
+            itemColor: newColor
         });
     };
 
     //Creates Object
-    createTodo = async text => {
-        await this.props.createTodo({
+    createSneaker = async (name, ranking, price, colorway, ownership) => {
+        //Error Handling
+        if(isNaN(price)) {
+            alert("Please Enter a Floating Point Number");
+            this.inputPrice.value = '';
+            return;
+        }
+        //Creates Todo
+        await this.props.createSneaker({
           variables: {
-            text
+            name,
+            ranking,
+            price,
+            colorway,
+            ownership
           },
           refetchQueries:[{
             query: RECEIVE
           }]
         })
+        currentRank++;
         this.inputName.value = '';
+        this.inputPrice.value = '';
+        this.inputColor.value = '';
     }
 
     //HTML for Entry Form at Bottom
@@ -41,10 +78,20 @@ class Entry extends React.Component {
                 <div className = "entry-box">
                     <div className = "elements">
                         <h1 className = "create-header">Create</h1>
-                        <label>Item Name</label>
-                        <input className = "item-name" type = "text" onChange = {this.handleChange} ref = {el => this.inputName = el}></input>
+                        <div className = "entry-element">
+                            <label>Sneaker Name</label>
+                            <input className = "item-name" type = "text" onChange = {this.handleName} ref = {el => this.inputName = el}></input>
+                        </div>
+                        <div className = "entry-element">
+                            <label>Price</label>
+                            <input className = "item-price" type = "text" onChange = {this.handlePrice} ref = {el => this.inputPrice = el}></input>
+                        </div>
+                        <div className = "entry-element">
+                            <label>Colorway</label>
+                            <input className = "item-color" type = "text" onChange = {this.handleColor} ref = {el => this.inputColor = el}></input>
+                        </div>
                         <div className = "create-button">
-                            <button onClick = {() => this.createTodo(this.state.itemtext)}>Create</button>
+                            <button onClick = {() => this.createSneaker(this.state.itemName, currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
                         </div>
                     </div>
                 </div>
@@ -53,4 +100,4 @@ class Entry extends React.Component {
     }
 }
 
-export default (graphql(CREATE, {name: 'createTodo'}))(Entry);
+export default (graphql(CREATE, {name: 'createSneaker'}))(Entry);

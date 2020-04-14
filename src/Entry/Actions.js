@@ -3,36 +3,41 @@ import gql from 'graphql-tag';
 
 //Creates Object
 export const CREATE = gql`
-  mutation($text: String!) {
-    createTodo(text: $text) {
-      text
-      id
-      complete
+  mutation($name: String!, $ranking: Int!, $price: Float!, $colorway: String!, $ownership: Boolean!) {
+    createSneaker(name: $name, ranking: $ranking, price: $price, colorway: $colorway, ownership: $ownership){
+      name
+      ranking
+      price
+      colorway
+      ownership
     }
   }
 `;
 
 //Receives Objects
 export const RECEIVE = gql`
-{
-  todos {
-    id
-    text 
-    complete
+  query {
+    getList{
+      id
+      name
+      ranking
+      price
+      colorway
+      ownership
+    }
   }
-}
 `;
 
 //Updates Object
 export const UPDATE = gql`
-  mutation($id: ID!, $complete: Boolean!) {
-    updateTodo(id: $id, complete: $complete)
+  mutation($id: ID!, $name: String, $ranking: Int, $price: Float, $colorway: String, $ownership: Boolean) {
+    updateSneaker(id: $id, name: $name, ranking: $ranking, price: $price, colorway: $colorway, ownership: $ownership)
   }
 `;
 
 //Deletes Object
 export const DELETE = gql`
   mutation($id: ID!) {
-    removeTodo(id:$id)
+    deleteSneaker(id:$id)
   }
 `;

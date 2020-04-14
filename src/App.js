@@ -11,12 +11,16 @@ import {flowRight as compose} from 'lodash';
 
 //Main App
 class App extends React.Component {
-  //Updates Todo (swaps complete Boolean value and updates)
-  updateTodo = async (todo) => {
-    await this.props.updateTodo({
+  //Updates Sneaker (swaps complete Boolean value and updates)
+  updateSneaker = async (sneaker) => {
+    await this.props.updateSneaker({
       variables: {
-        id: todo.id,
-        complete: !todo.complete
+        id: sneaker.id,
+        name: sneaker.name,
+        ranking: sneaker.ranking,
+        price: sneaker.price,
+        colorway: sneaker.colorway,
+        ownership: sneaker.ownership
       },
       refetchQueries:[{
         query: RECEIVE
@@ -24,11 +28,11 @@ class App extends React.Component {
     });
   };
 
-  //Deletes Todo (deletes from database and updates)
-  deleteTodo = async todo => {
-    await this.props.deleteTodo({
+  //Deletes Sneaker (deletes from database and updates)
+  deleteSneaker = async (sneaker) => {
+    await this.props.deleteSneaker({
       variables: {
-        id: todo.id
+        id: sneaker.id
       },
       refetchQueries:[{
         query: RECEIVE
@@ -38,7 +42,8 @@ class App extends React.Component {
 
   //Renders App
   render() {
-    const {data: {loading, todos}} = this.props;
+    console.log(this.props);
+    const {data: {loading, getList}} = this.props;
     if (loading) {
       return null;
     }
@@ -47,9 +52,9 @@ class App extends React.Component {
         <Header />
         <div style = {{display: "flex"}}>
           <div style = {{margin: "auto", width: "80%"}}>
-              {todos.map(todo => (
-                <ListItem key = {`${todo.id}-todo-item`} name = {todo.text} complete = {todo.complete} update = {() => this.updateTodo(todo)} delete = {() => this.deleteTodo(todo)} />
-              ))}
+            {getList.map(sneaker => (
+                <ListItem key = {`${sneaker.id}-item`} rank = {sneaker.ranking} name = {sneaker.name} price = {sneaker.price} color = {sneaker.colorway} ownership = {sneaker.ownership} update = {() => this.updateSneaker(sneaker)} delete = {() => this.deleteSneaker(sneaker)} />
+            ))}
           </div>
         </div>
         <Entry />
@@ -61,7 +66,7 @@ class App extends React.Component {
 //Exports Packages
 export default compose(
   graphql(RECEIVE),
-  graphql(UPDATE, {name: 'updateTodo'}),
-  graphql(DELETE, {name: 'deleteTodo'})
+  graphql(UPDATE, {name: 'updateSneaker'}),
+  graphql(DELETE, {name: 'deleteSneaker'})
 )(App);
 
