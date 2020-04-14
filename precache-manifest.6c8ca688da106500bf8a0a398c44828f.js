@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc3439493eec1f1d92d9a3b0fe6b582a",
+    "revision": "ed3999bd740a4b60dfd30e7319c4a901",
     "url": "/aglet/index.html"
   },
   {
-    "revision": "5a8e571085df7e73b208",
-    "url": "/aglet/static/css/main.a1e7d272.chunk.css"
+    "revision": "3c74def5946fb9ba28c8",
+    "url": "/aglet/static/css/main.85866b24.chunk.css"
   },
   {
-    "revision": "4e47358a8f9ab9a5a3fe",
-    "url": "/aglet/static/js/2.26cba4c9.chunk.js"
+    "revision": "df80f665d105da64d5fb",
+    "url": "/aglet/static/js/2.d9ba6e7e.chunk.js"
   },
   {
     "revision": "3e6933cf6bd44f8f91c7aa725d75c668",
-    "url": "/aglet/static/js/2.26cba4c9.chunk.js.LICENSE.txt"
+    "url": "/aglet/static/js/2.d9ba6e7e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5a8e571085df7e73b208",
-    "url": "/aglet/static/js/main.f0a126e6.chunk.js"
+    "revision": "3c74def5946fb9ba28c8",
+    "url": "/aglet/static/js/main.068478d9.chunk.js"
   },
   {
     "revision": "f0266086d2c38f3718fa",
