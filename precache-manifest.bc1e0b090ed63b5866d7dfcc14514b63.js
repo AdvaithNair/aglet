@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ed3999bd740a4b60dfd30e7319c4a901",
+    "revision": "7cadb31c37c6938679b50ec8f63e13e4",
     "url": "/aglet/index.html"
   },
   {
-    "revision": "3c74def5946fb9ba28c8",
-    "url": "/aglet/static/css/main.85866b24.chunk.css"
+    "revision": "ef89e246357920d9303f",
+    "url": "/aglet/static/css/main.b07433d4.chunk.css"
   },
   {
     "revision": "df80f665d105da64d5fb",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/aglet/static/js/2.d9ba6e7e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3c74def5946fb9ba28c8",
-    "url": "/aglet/static/js/main.068478d9.chunk.js"
+    "revision": "ef89e246357920d9303f",
+    "url": "/aglet/static/js/main.3361ca8c.chunk.js"
   },
   {
     "revision": "f0266086d2c38f3718fa",
