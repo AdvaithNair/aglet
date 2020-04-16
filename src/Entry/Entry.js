@@ -77,22 +77,22 @@ class Entry extends React.Component {
                 <div className = "over-bar"></div>
                 <div className = "entry-box">
                     <div className = "elements">
-                        <h1 className = "create-header">Create</h1>
+                        <br />
+                        <h1 className = "create-header">Add New Sneaker</h1>
                         <div className = "entry-element">
-                            <label>Sneaker Name</label>
-                            <input className = "item-name" type = "text" onChange = {this.handleName} ref = {el => this.inputName = el}></input>
+                            <label className = "entry-label">Name</label>
+                            <input className = "entry-name" type = "text" onChange = {this.handleName} ref = {el => this.inputName = el}></input>
+                            <br /><br />
+                            <label className = "entry-label">Price</label>
+                            <input className = "entry-price" type = "text" onChange = {this.handlePrice} ref = {el => this.inputPrice = el}></input>
+                            <br /><br />
+                            <label className = "entry-label">Colorway</label>
+                            <input className = "entry-color" type = "text" onChange = {this.handleColor} ref = {el => this.inputColor = el}></input>
+                            <div>
+                            <button className = "create-button" onClick = {() => this.createSneaker(this.state.itemName, currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
+                            </div>
                         </div>
-                        <div className = "entry-element">
-                            <label>Price</label>
-                            <input className = "item-price" type = "text" onChange = {this.handlePrice} ref = {el => this.inputPrice = el}></input>
-                        </div>
-                        <div className = "entry-element">
-                            <label>Colorway</label>
-                            <input className = "item-color" type = "text" onChange = {this.handleColor} ref = {el => this.inputColor = el}></input>
-                        </div>
-                        <div className = "create-button">
-                            <button onClick = {() => this.createSneaker(this.state.itemName, currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
-                        </div>
+                        <br />
                     </div>
                 </div>
             </div>

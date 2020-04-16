@@ -4,6 +4,12 @@
     padding: 0px;
     margin: 50px 0px;
     display: flex;
+    border: 5px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.item:hover {
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.7)
 }
 
 .content {
@@ -40,7 +46,6 @@
 .item-price {
     font-size: 30pt;
     margin-top: 4px;
-    color: white;
     float: right;
 }
 
