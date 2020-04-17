@@ -9,7 +9,7 @@
 }
 
 .item:hover {
-    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.7)
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.7);
 }
 
 .content {
@@ -20,6 +20,7 @@
 }
 
 .primary-info {
+    margin-top: -10px;
     width: auto;
 }
 
@@ -53,9 +54,51 @@
     clear: both;
 }
 
-p {
+.secondary-info {
+    margin-top: -10px;
+    text-align: left;
+    width: 100%;
+    float: left;
+    margin-bottom: -30px;
 }
 
-button {
-    margin: 15px;
+.secondary-table {
+    text-align: left;
+    float: left;
+}
+
+th, td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button-array {
+    float: right;
+    margin-right: -12px;
+}
+
+.update-button {
+    border: none;
+    height: 40px;
+    width: 120px;
+    margin-top: 20px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list-button, .edit-button {
+    border: none;
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.update-button:hover, .list-button:hover, .edit-button:hover {
+    box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.7);
+}
+
+.in-button {
+    margin-top: 2px;
 }

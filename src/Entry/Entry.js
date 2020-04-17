@@ -45,12 +45,24 @@ class Entry extends React.Component {
 
     //Creates Object
     createSneaker = async (name, ranking, price, colorway, ownership) => {
-        //Error Handling
+        //Error Handling: Ensures Name is Entered
+        if(name === "") {
+            alert("Please Enter Variables");
+            return;
+        }
+
+        //Error Handling: Ensures Price is a Float
         if(isNaN(price)) {
             alert("Please Enter a Floating Point Number");
             this.inputPrice.value = '';
             return;
         }
+
+        //Error Handling: Fills In N/A for Black Colorway
+        if(colorway === "") {
+            colorway = "N/A";
+        }
+
         //Creates Todo
         await this.props.createSneaker({
           variables: {
@@ -69,7 +81,6 @@ class Entry extends React.Component {
         this.inputPrice.value = '';
         this.inputColor.value = '';
     }
-
     //HTML for Entry Form at Bottom
     render() {
         return (
