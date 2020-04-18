@@ -3,11 +3,11 @@ import './Entry.css';
 
 import {graphql} from 'react-apollo';
 
-import {RECEIVE, CREATE} from './Actions.js';
+import {RECEIVE, CREATE} from './../Actions.js';
 
+
+//CHANGE THIS TO INCLUDE getRank() FROM UPCOMING Sneakers CLASS
 let currentRank = 1;
-
-
 
 class Entry extends React.Component {
     //State Machine of Text (from Item Name)
@@ -63,7 +63,7 @@ class Entry extends React.Component {
             colorway = "N/A";
         }
 
-        //Creates Todo
+        //Creates Sneaker
         await this.props.createSneaker({
           variables: {
             name,
@@ -81,6 +81,7 @@ class Entry extends React.Component {
         this.inputPrice.value = '';
         this.inputColor.value = '';
     }
+
     //HTML for Entry Form at Bottom
     render() {
         return (

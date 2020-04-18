@@ -35,6 +35,13 @@ export const UPDATE = gql`
   }
 `;
 
+//Updates Ownership of Object
+export const UPDATE_OWNERSHIP = gql`
+  mutation($id: ID!, $ownership: Boolean!) {
+    updateOwnership(id: $id, ownership: $ownership)
+  }
+`;
+
 //Deletes Object
 export const DELETE = gql`
   mutation($id: ID!) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import AgletLogo from './AgletLogoOutline.png';
+import AgletLogo from './../Images/AgletLogoOutline.png';
 
 //HTML for Header Segment
 function Header() {

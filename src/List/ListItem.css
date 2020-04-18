@@ -1,3 +1,32 @@
+.edit-name, .edit-price {
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 1.5em;
+    background-color: #FF2929;
+    border: none;
+    border-bottom: 4px solid #FFDC00; 
+    margin-bottom: 35px;
+}
+
+.edit-name {
+    float: left;
+    width: 40%;
+}
+
+.edit-price {
+    float: right;
+    width: 20%;
+    text-align: right;
+}
+
+.edit-color {
+    background-color: #FF2929;
+    border: none;
+    border-bottom: 4px solid #FFDC00; 
+    width: 100%;
+    margin-bottom: -5px;
+}
+
 .item {
     background-color: #FF2929;
     border-radius: 30px;
@@ -81,7 +110,7 @@ th, td {
     border: none;
     height: 40px;
     width: 120px;
-    margin-top: 20px;
+    margin-top: 10px;
     border-radius: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

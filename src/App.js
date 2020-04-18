@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {graphql} from 'react-apollo';
-import {RECEIVE, UPDATE, DELETE} from './Entry/Actions.js';
+import {RECEIVE, UPDATE_OWNERSHIP, DELETE} from './Actions.js';
 
 import Header from './Header/Header.js';
 import ListItem from './List/ListItem.js';
@@ -11,16 +11,12 @@ import {flowRight as compose} from 'lodash';
 
 //Main App
 class App extends React.Component {
-  //Updates Sneaker (swaps complete Boolean value and updates)
-  updateSneaker = async (sneaker) => {
-    await this.props.updateSneaker({
+  //Updates Ownership (swaps ownership boolean and updates)
+  updateOwnership = async (sneaker) => {
+    await this.props.updateOwnership({
       variables: {
         id: sneaker.id,
-        name: sneaker.name,
-        ranking: sneaker.ranking,
-        price: sneaker.price,
-        colorway: sneaker.colorway,
-        ownership: sneaker.ownership
+        ownership: !sneaker.ownership
       },
       refetchQueries:[{
         query: RECEIVE
@@ -44,16 +40,20 @@ class App extends React.Component {
   render() {
     console.log(this.props);
     const {data: {loading, getList}} = this.props;
+
     if (loading) {
       return null;
     }
+
     return (
       <div>
         <Header />
         <div style = {{display: "flex"}}>
           <div style = {{margin: "auto", width: "80%"}}>
             {getList.map(sneaker => (
-                <ListItem key = {`${sneaker.id}-item`} rank = {sneaker.ranking} name = {sneaker.name} price = {sneaker.price} color = {sneaker.colorway} ownership = {sneaker.ownership} update = {() => this.updateSneaker(sneaker)} delete = {() => this.deleteSneaker(sneaker)} />
+                <ListItem key = {`${sneaker.id}-item`} sneaker = {sneaker} 
+                updateOwnership = {() => this.updateOwnership(sneaker)} 
+                delete = {() => this.deleteSneaker(sneaker)} />
             ))}
           </div>
         </div>
@@ -66,7 +66,7 @@ class App extends React.Component {
 //Exports Packages
 export default compose(
   graphql(RECEIVE),
-  graphql(UPDATE, {name: 'updateSneaker'}),
+  graphql(UPDATE_OWNERSHIP, {name: 'updateOwnership'}),
   graphql(DELETE, {name: 'deleteSneaker'})
 )(App);
 
