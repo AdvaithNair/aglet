@@ -87,6 +87,7 @@ class Entry extends React.Component {
                         <br />
                         <h1 className = "create-header">Add New Sneaker</h1>
                         <div className = "entry-element">
+                            <br />
                             <label className = "entry-label">Name</label>
                             <input className = "entry-name" type = "text" onChange = {this.handleName} ref = {el => this.inputName = el}></input>
                             <br /><br />
@@ -95,9 +96,7 @@ class Entry extends React.Component {
                             <br /><br />
                             <label className = "entry-label">Colorway</label>
                             <input className = "entry-color" type = "text" onChange = {this.handleColor} ref = {el => this.inputColor = el}></input>
-                            <div>
-                            <button className = "create-button" onClick = {() => this.createSneaker(this.state.itemName, this.props.currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
-                            </div>
+                            <div><button className = "create-button" onClick = {() => this.createSneaker(this.state.itemName, this.props.currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button></div>
                         </div>
                         <br />
                     </div>
