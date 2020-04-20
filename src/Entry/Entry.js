@@ -5,10 +5,6 @@ import {graphql} from 'react-apollo';
 
 import {RECEIVE, CREATE} from './../Actions.js';
 
-
-//CHANGE THIS TO INCLUDE getRank() FROM UPCOMING Sneakers CLASS
-let currentRank = 1;
-
 class Entry extends React.Component {
     //State Machine of Text (from Item Name)
     state = {
@@ -76,7 +72,6 @@ class Entry extends React.Component {
             query: RECEIVE
           }]
         })
-        currentRank++;
         this.inputName.value = '';
         this.inputPrice.value = '';
         this.inputColor.value = '';
@@ -101,7 +96,7 @@ class Entry extends React.Component {
                             <label className = "entry-label">Colorway</label>
                             <input className = "entry-color" type = "text" onChange = {this.handleColor} ref = {el => this.inputColor = el}></input>
                             <div>
-                            <button className = "create-button" onClick = {() => this.createSneaker(this.state.itemName, currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
+                            <button className = "create-button" onClick = {() => this.createSneaker(this.state.itemName, this.props.currentRank, parseFloat(this.state.itemPrice), this.state.itemColor, false)}>Create</button>
                             </div>
                         </div>
                         <br />

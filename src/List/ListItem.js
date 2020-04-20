@@ -153,15 +153,15 @@ class ListItem extends React.Component {
                     </div>
                     <div className = "secondary-info">
                         <table className = "secondary-table">
-                            <tr><th>Colorway</th><td>{this.getColorwayElement()}</td></tr>
-                            <tr><th>Owned</th><td>{this.getOwnership()}</td></tr>
-                            <button className = "update-button" onClick = {this.props.updateOwnership} >Update Ownership</button>
+                            <tbody><tr><th>Colorway</th><td>{this.getColorwayElement()}</td></tr>
+                                <tr><th>Owned</th><td>{this.getOwnership()}</td></tr>
+                                <tr><button className = "update-button" onClick = {this.props.updateOwnership} >Update Ownership</button></tr></tbody>
                         </table>
                         <table className = "button-array">
-                            <tr><td><button className = "list-button"><ExpandLessIcon className = "in-button"/></button></td>
+                            <tbody><tr><td><button className = "list-button"><ExpandLessIcon className = "in-button"/></button></td>
                                 <td><button id = "edit" className = "list-button" onClick = {this.toggleButton}>{this.getEditIcon()}</button></td></tr>
                             <tr><td><button className = "list-button"><ExpandMoreIcon className = "in-button"/></button></td>
-                                <td><button className = "list-button" onClick = {this.props.delete}><CloseIcon className = "in-button"/></button></td></tr>
+                                <td><button className = "list-button" onClick = {this.props.delete}><CloseIcon className = "in-button"/></button></td></tr></tbody>
                         </table>
                     </div>
                 </div>

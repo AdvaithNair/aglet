@@ -1,4 +1,51 @@
-* {
-  margin: 0;
-  padding: 0;
+.tabs {
+    background-color: #CCCCCC;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 70%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.tab-list {
+    border: none;
+    display: flex;
+    margin-left: -40px;
+}
+
+.tab {
+    border: none;
+    width: 20%;
+    list-style: none;
+    margin-top: 8px;
+}
+
+.sort-select, .sort-not-selected {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 0 auto;
+    margin-top: -5px;
+}
+
+.sort-select {
+    background-color: grey;
+}
+
+.sort-not-selected:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sort-not-selected {
+    background-color: #ADADAD;
+}
+
+.in-div {
+    margin-top: 8px;
+    margin-left: 8px;
+}
+
+.wish-count {
+    margin-top: 40px;
+    margin-bottom: -20px;
 }
