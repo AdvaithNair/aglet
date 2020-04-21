@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/aglet/static/css/main.3a9675ee.chunk.css",
-    "main.js": "/aglet/static/js/main.540bdaa7.chunk.js",
-    "main.js.map": "/aglet/static/js/main.540bdaa7.chunk.js.map",
+    "main.js": "/aglet/static/js/main.912cb032.chunk.js",
+    "main.js.map": "/aglet/static/js/main.912cb032.chunk.js.map",
     "runtime-main.js": "/aglet/static/js/runtime-main.2c99be80.js",
     "runtime-main.js.map": "/aglet/static/js/runtime-main.2c99be80.js.map",
-    "static/js/2.bf8e69cc.chunk.js": "/aglet/static/js/2.bf8e69cc.chunk.js",
-    "static/js/2.bf8e69cc.chunk.js.map": "/aglet/static/js/2.bf8e69cc.chunk.js.map",
+    "static/js/2.50884e65.chunk.js": "/aglet/static/js/2.50884e65.chunk.js",
+    "static/js/2.50884e65.chunk.js.map": "/aglet/static/js/2.50884e65.chunk.js.map",
     "index.html": "/aglet/index.html",
-    "precache-manifest.1434b9cfa5c75d3f6e08ff22c014131c.js": "/aglet/precache-manifest.1434b9cfa5c75d3f6e08ff22c014131c.js",
+    "precache-manifest.2cec4c0445701c3a792b7643b94c4070.js": "/aglet/precache-manifest.2cec4c0445701c3a792b7643b94c4070.js",
     "service-worker.js": "/aglet/service-worker.js",
     "static/css/main.3a9675ee.chunk.css.map": "/aglet/static/css/main.3a9675ee.chunk.css.map",
-    "static/js/2.bf8e69cc.chunk.js.LICENSE.txt": "/aglet/static/js/2.bf8e69cc.chunk.js.LICENSE.txt",
+    "static/js/2.50884e65.chunk.js.LICENSE.txt": "/aglet/static/js/2.50884e65.chunk.js.LICENSE.txt",
     "static/media/AgletLogoOutline.png": "/aglet/static/media/AgletLogoOutline.d1e90b88.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2c99be80.js",
-    "static/js/2.bf8e69cc.chunk.js",
+    "static/js/2.50884e65.chunk.js",
     "static/css/main.3a9675ee.chunk.css",
-    "static/js/main.540bdaa7.chunk.js"
+    "static/js/main.912cb032.chunk.js"
   ]
 }
