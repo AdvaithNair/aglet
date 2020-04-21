@@ -42,6 +42,13 @@ export const UPDATE_OWNERSHIP = gql`
   }
 `;
 
+//Updates Ranking of Object
+export const UPDATE_RANKING = gql`
+  mutation($id: ID!, $ranking: Int!) {
+    updateRanking(id: $id, ranking: $ranking)
+  }
+`;
+
 //Deletes Object
 export const DELETE = gql`
   mutation($id: ID!) {

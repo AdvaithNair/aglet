@@ -1,9 +1,11 @@
 import React from 'react';
 import './ListItem.css';
 
-import {RECEIVE, UPDATE} from './../Actions.js';
-
+import {RECEIVE, UPDATE, UPDATE_RANKING} from './../Actions.js';
+import {flowRight as compose} from 'lodash';
 import {graphql} from 'react-apollo';
+
+import {sortByRank} from './../Sorting.js';
 
 //Material Icons
 import CloseIcon from '@material-ui/icons/Close';
@@ -12,7 +14,6 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import CheckIcon from '@material-ui/icons/Check';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';import CancelIcon from '@material-ui/icons/Cancel'; 
-
 
 //HTML for a List Item (Sneaker Listing Object)
 class ListItem extends React.Component {
@@ -61,6 +62,19 @@ class ListItem extends React.Component {
             })
         }
     }
+
+    //Updates Ranking
+    updateRanking = async (id, ranking) => {
+        await this.props.updateRanking({
+        variables: {
+            id,
+            ranking
+        },
+        refetchQueries:[{
+            query: RECEIVE
+        }]
+        });
+    };
 
     //Toggles Button (Sets State and Calls Edit Function)
     toggleButton = () => {
@@ -140,6 +154,30 @@ class ListItem extends React.Component {
         });
     };
 
+    swapUp = () => {
+        let currentRank = this.props.sneaker.ranking;
+        let newList = sortByRank(this.props.wholeList);
+        //Update Ranking Mutation
+        if(currentRank > 1) {
+            //Update Current Element
+            this.updateRanking(newList[currentRank - 1].id, (currentRank - 1));
+            //Update Element Before
+            this.updateRanking(newList[currentRank - 2].id, currentRank);
+        }
+    }
+
+    swapDown = () => {
+        let currentRank = this.props.sneaker.ranking;
+        let newList = sortByRank(this.props.wholeList);
+        //Update Ranking Mutation
+        if(currentRank < (this.props.wholeList.length)) {
+            //Update Current Element
+            this.updateRanking(newList[currentRank - 1].id, (currentRank + 1));
+            //Update Element After
+            this.updateRanking(newList[currentRank].id, currentRank);
+        }
+    }
+
     //Renders HTML for ListItem
     render(){
         return(
@@ -158,9 +196,9 @@ class ListItem extends React.Component {
                                 <tr><button className = "update-button" onClick = {this.props.updateOwnership} >Update Ownership</button></tr></tbody>
                         </table>
                         <table className = "button-array">
-                            <tbody><tr><td><button className = "list-button"><ExpandLessIcon className = "in-button"/></button></td>
+                            <tbody><tr><td><button className = "list-button" onClick = {this.swapUp}><ExpandLessIcon className = "in-button"/></button></td>
                                 <td><button id = "edit" className = "list-button" onClick = {this.toggleButton}>{this.getEditIcon()}</button></td></tr>
-                            <tr><td><button className = "list-button"><ExpandMoreIcon className = "in-button"/></button></td>
+                            <tr><td><button className = "list-button" onClick = {this.swapDown}><ExpandMoreIcon className = "in-button"/></button></td>
                                 <td><button className = "list-button" onClick = {this.props.delete}><CloseIcon className = "in-button"/></button></td></tr></tbody>
                         </table>
                     </div>
@@ -170,4 +208,7 @@ class ListItem extends React.Component {
     };
 }
 
-export default (graphql(UPDATE, {name: 'updateSneaker'}))(ListItem);
+export default compose(
+    graphql(UPDATE, {name: 'updateSneaker'}),
+    graphql(UPDATE_RANKING, {name: 'updateRanking'})
+)(ListItem);

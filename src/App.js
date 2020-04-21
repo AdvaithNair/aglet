@@ -150,7 +150,7 @@ class App extends React.Component {
                   {this.getOrder(getList).map(sneaker => (
                       <ListItem key = {`${sneaker.id}-item`} sneaker = {sneaker} 
                       updateOwnership = {() => this.updateOwnership(sneaker)} 
-                      delete = {() => this.deleteSneaker(sneaker)} />
+                      delete = {() => this.deleteSneaker(sneaker)} wholeList = {getList}/>
                   ))}
                 </div>
               </div>
