@@ -10,6 +10,8 @@ It utilizes the MERN stack:
 
 Furthermore, it uses GraphQL with Apollo and Mongoose to interact with the database.
 
+NOTE: The server is not currently hosted, therefore it will not work at the moment. I plan to potentially upload this later on.
+
 ![Aglet Screenshot](https://advaithnair.github.io/assets/images/Programming/Aglet/UI1.jpeg)
 
 ## Prerequisites
@@ -41,7 +43,6 @@ npm install express --save
 #### ReactJS
 ```
 npm install react --save
-
 ```
 
 #### NodeJS
